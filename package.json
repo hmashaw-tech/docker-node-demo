@@ -1,0 +1,25 @@
+{
+  "name": "docker-node-demo",
+  "version": "1.0.0",
+  "description": "Docker Node.js Demo",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github-hs4706:hmashaw-tech/docker-node-demo.git"
+  },
+  "keywords": [
+    "Docker",
+    "Node"
+  ],
+  "author": "Mark",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.16.3"
+  },
+  "devDependencies": {
+    "mocha": "^5.1.1"
+  }
+}
