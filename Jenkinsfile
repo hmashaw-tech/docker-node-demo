@@ -15,10 +15,10 @@ pipeline {
         stage('Prep') {
             steps {
                 sh "git rev-parse --short HEAD > .git/commit-id"                        
-                commit_id = readFile('.git/commit-id').trim()
+                script { commit_id = readFile('.git/commit-id').trim() }
             } 
         }
-        
+
 
         stage('Test in Docker') {
             
