@@ -29,7 +29,7 @@ pipeline {
         }
 
         stage('Deploy') {
-            steps {sh 'Deploy Demo'}
+            steps {sh 'echo Deploy Demo'}
         }
 
     }
