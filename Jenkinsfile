@@ -25,7 +25,17 @@ pipeline {
         }
 
         stage('Test') {
-            steps {sh 'echo Test Demo'}
+            steps {
+                def myTestContainer = docker.image('node:alpine')
+                myTestContainer.pull()
+                myTestContainer.inside {
+                    withEnv(['HOME=.']) {
+                        sh 'npm install'
+                        sh 'npm test'
+                        junit "**/reports/*.xml"
+                    }
+                }
+            }
         }
 
         stage('Deploy') {
