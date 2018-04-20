@@ -12,34 +12,13 @@ pipeline {
 
     stages {
 
-        stage('Hello World') {
-
+        stage('Prep') {
             steps {
-                sh 'echo $msg'
-            }
-
+                sh "git rev-parse --short HEAD > .git/commit-id"                        
+                commit_id = readFile('.git/commit-id').trim()
+            } 
         }
-
-        stage('Build') {
-            steps {sh 'echo Build Demo'} 
-        }
-
-        stage('Test') {
-            steps {
-                script {
-                    def myTestContainer = docker.image('node:alpine')
-                    myTestContainer.pull()
-                    myTestContainer.inside {
-                        withEnv(['HOME=.']) {
-                            sh 'npm install'
-                            sh 'npm test'
-                            junit "**/reports/*.xml"
-                        }
-                    }
-                }
-            }
-        }
-
+        
 
         stage('Test in Docker') {
             
