@@ -45,8 +45,9 @@ pipeline {
             steps {
                 script {
                     docker.withRegistry('https://index.docker.io/v1/', 'dockerhub') {
-                    def appImage = docker.build("markshaw/docker-node-demo:${env.BUILD_ID}", '.')
-                    appImage.push()
+                        def appImage = docker.build("markshaw/docker-node-demo:${env.BUILD_ID}", '.')
+                        appImage.push()
+                    }
                 }
             }
 
