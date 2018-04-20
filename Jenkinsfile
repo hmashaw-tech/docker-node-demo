@@ -29,7 +29,6 @@ pipeline {
             }
 
             steps {
-                sh
                 withEnv(['HOME=.']) {
                     sh 'npm install'
                     sh 'npm test'
@@ -52,7 +51,7 @@ pipeline {
             }
 
         }
-        
+
     }
 
 }
