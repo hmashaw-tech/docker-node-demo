@@ -9,13 +9,17 @@ node {
     }
 
     stage('Test') {
-      def myTestContainer = docker.image('node:latest')
-      myTestContainer.pull()
-      myTestContainer.inside {
-          sh 'npm install'
-          sh 'npm test'
-      }
-   }
+        def myTestContainer = docker.image('node:latest')
+        myTestContainer.pull()
+        myTestContainer.inside {
+            withEnv([
+                'HOME=.'
+            ]) {
+                sh 'npm install'
+                sh 'npm test'
+            }
+        }
+    }
 
     stage('Docker build/push') {
         docker.withRegistry('https://index.docker.io/v1/', 'dockerhub') {
