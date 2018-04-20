@@ -17,7 +17,7 @@ node {
             ]) {
                 sh 'npm install'
                 sh 'npm test'
-                junit "test-reults.xml"
+                junit "**/reports/*.xml"
             }
         }
     }
