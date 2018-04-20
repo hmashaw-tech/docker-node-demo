@@ -8,10 +8,6 @@ node {
         commit_id = readFile('.git/commit-id').trim()
     }
 
-    stage('Static Code Check') {
-        sh 'npm run lint'
-    }
-
     stage('Test') {
         def myTestContainer = docker.image('node:alpine')
         myTestContainer.pull()

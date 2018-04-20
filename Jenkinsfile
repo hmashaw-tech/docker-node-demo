@@ -27,6 +27,7 @@ pipeline {
             }
 
             steps {
+                sh
                 withEnv(['HOME=.']) {
                     sh 'npm install'
                     sh 'npm test'
@@ -37,9 +38,14 @@ pipeline {
         }
 
 
-        stage('Deploy') {
-            steps {sh 'echo Deploy Demo'}
+        stage('Docker build/push') {
+            script {
+                docker.withRegistry('https://index.docker.io/v1/', 'dockerhub') {
+                def appImage = docker.build("markshaw/docker-node-demo:${env.BUILD_ID}", '.')
+                appImage.push()
+            }
         }
+    }
 
     }
 
