@@ -20,6 +20,6 @@ app.get('/api/osInfo', (req, res) => {
 })
 
 
-// X const codeCoverageDemo = () => true
+const codeCoverageDemo = () => true
 
 module.exports = app
