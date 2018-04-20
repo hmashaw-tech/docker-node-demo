@@ -40,6 +40,22 @@ pipeline {
             }
         }
 
+
+        stage('Test in Docker') {
+            
+            agent {
+                docker { image 'node:alpine' }
+            }
+
+            withEnv(['HOME=.']) {
+                sh 'npm install'
+                sh 'npm test'
+                junit "**/reports/*.xml"
+            }
+
+        }
+
+
         stage('Deploy') {
             steps {sh 'echo Deploy Demo'}
         }
