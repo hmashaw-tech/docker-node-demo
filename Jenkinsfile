@@ -23,6 +23,7 @@ node {
             }
         }
 
+/*
         stage('Docker build/push') {
             docker.withRegistry('https://index.docker.io/v1/', 'dockerhub') {
                 def app = docker.build("markshaw/docker-node-demo:${commit_id}", '.').push()
@@ -30,6 +31,7 @@ node {
         }
 
     }
+*/
 
     post {
         always {
