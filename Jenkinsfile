@@ -20,11 +20,17 @@ pipeline {
 
         }
 
-        stage('Build') { steps {} }
+        stage('Build') {
+            steps {sh 'echo Build Demo'} 
+        }
 
-        stage('Test') { steps {} }
+        stage('Test') {
+            steps {sh 'echo Test Demo'}
+        }
 
-        stage('Deploy') { steps {} }
+        stage('Deploy') {
+            steps {sh 'Deploy Demo'}
+        }
 
     }
 
