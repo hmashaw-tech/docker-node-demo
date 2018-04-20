@@ -17,6 +17,7 @@ node {
             ]) {
                 sh 'npm install'
                 sh 'npm test'
+                junit "test-reults.xml"
             }
         }
     }
@@ -28,12 +29,5 @@ node {
         }
     }
     */
-
-
-    post {
-        always {
-            junit "test-reults.xml"
-        }
-    }
    
 }
