@@ -9,7 +9,7 @@ node {
     }
 
     stage('Test') {
-      def myTestContainer = docker.image('node:alpine')
+      def myTestContainer = docker.image('node:latest')
       myTestContainer.pull()
       myTestContainer.inside {
           sh 'npm install'
