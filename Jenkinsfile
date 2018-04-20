@@ -13,10 +13,12 @@ pipeline {
     stages {
 
         stage('Prep') {
+
             steps {
                 sh "git rev-parse --short HEAD > .git/commit-id"                        
                 script { commit_id = readFile('.git/commit-id').trim() }
             } 
+
         }
 
 
@@ -39,14 +41,16 @@ pipeline {
 
 
         stage('Docker build/push') {
-            script {
-                docker.withRegistry('https://index.docker.io/v1/', 'dockerhub') {
-                def appImage = docker.build("markshaw/docker-node-demo:${env.BUILD_ID}", '.')
-                appImage.push()
-            }
-        }
-    }
 
+            steps {
+                script {
+                    docker.withRegistry('https://index.docker.io/v1/', 'dockerhub') {
+                    def appImage = docker.build("markshaw/docker-node-demo:${env.BUILD_ID}", '.')
+                    appImage.push()
+                }
+            }
+
+        }
     }
 
 }
