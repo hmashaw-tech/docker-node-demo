@@ -1,33 +1,31 @@
-node {
+/**
+ * 
+ */
 
-    def commit_id
+pipeline {
 
-    stage('Preparation') {
-        checkout scm
-        sh "git rev-parse --short HEAD > .git/commit-id"                        
-        commit_id = readFile('.git/commit-id').trim()
+    agent any
+
+    environment {
+        msg = 'Hello World!'
     }
 
-    stage('Test') {
-        def myTestContainer = docker.image('node:alpine')
-        myTestContainer.pull()
-        myTestContainer.inside {
-            withEnv([
-                'HOME=.'
-            ]) {
-                sh 'npm install'
-                sh 'npm test'
-                junit "**/reports/*.xml"
+    stages {
+
+        stage('Hello World') {
+
+            steps {
+                sh 'echo msg'
             }
+
         }
+
+        stage('Build') {}
+
+        stage('Test') {}
+
+        stage('Deploy') {}
+
     }
 
-    /*
-    stage('Docker build/push') {
-        docker.withRegistry('https://index.docker.io/v1/', 'dockerhub') {
-            def app = docker.build("markshaw/docker-node-demo:${commit_id}", '.').push()
-        }
-    }
-    */
-   
 }

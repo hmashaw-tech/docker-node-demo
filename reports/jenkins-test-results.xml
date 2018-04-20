@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuites name="Mocha Tests" time="0.020999999999999998" tests="2" failures="0">
-  <testsuite name="Root Suite" timestamp="2018-04-20T13:40:42" tests="0" failures="0" time="0">
+<testsuites name="Mocha Tests" time="0.02" tests="2" failures="0">
+  <testsuite name="Root Suite" timestamp="2018-04-20T15:08:18" tests="0" failures="0" time="0">
   </testsuite>
-  <testsuite name="The Nodejs Demo App" timestamp="2018-04-20T13:40:42" tests="2" file="/Users/markshaw/Documents/RIT/docker-node-demo/test/test.js" failures="0" time="0.020999999999999998">
-    <testcase name="The Nodejs Demo App handles a GET request to /api" time="0.018" classname="handles a GET request to /api">
+  <testsuite name="The Nodejs Demo App" timestamp="2018-04-20T15:08:18" tests="2" file="/Users/markshaw/Documents/RIT/docker-node-demo/test/test.js" failures="0" time="0.02">
+    <testcase name="The Nodejs Demo App handles a GET request to /api" time="0.017" classname="handles a GET request to /api">
     </testcase>
     <testcase name="The Nodejs Demo App handles a GET request to /api/osInfo" time="0.003" classname="handles a GET request to /api/osInfo">
     </testcase>

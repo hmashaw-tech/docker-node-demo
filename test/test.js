@@ -2,6 +2,10 @@
  * 
  */
 
+/* eslint-env mocha */
+/* eslint-disable handle-callback-err */
+/* eslint-disable dot-location */
+
 const assert = require('assert')
 const request = require('supertest')
 
