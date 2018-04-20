@@ -9,7 +9,7 @@ node {
     }
 
     stage('test') {
-        sh 'npm install --only=dev'
+        sh 'npm install'
         sh 'npm test'
     }
 
