@@ -1,7 +1,5 @@
-pipeline {
+node {
 
-    agent any
-    
     def commit_id
 
     stages {
