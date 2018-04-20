@@ -9,7 +9,7 @@ node {
     }
 
     stage('Test') {
-        def myTestContainer = docker.image('node:latest')
+        def myTestContainer = docker.image('node:alpine')
         myTestContainer.pull()
         myTestContainer.inside {
             withEnv([
