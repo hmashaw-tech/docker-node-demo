@@ -47,10 +47,12 @@ pipeline {
                 docker { image 'node:alpine' }
             }
 
-            withEnv(['HOME=.']) {
-                sh 'npm install'
-                sh 'npm test'
-                junit "**/reports/*.xml"
+            steps {
+                withEnv(['HOME=.']) {
+                    sh 'npm install'
+                    sh 'npm test'
+                    junit "**/reports/*.xml"
+                }
             }
 
         }
