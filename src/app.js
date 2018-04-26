@@ -8,7 +8,7 @@ const express = require('express')
 const app = express()
 
 app.get('/api', (req, res) => {
-    res.send({ msg: 'Demo App - Version 1.0.0'})
+    res.send({ msg: 'Demo App - Version 1.0.0 - Beta'})
 })
 
 app.get('/api/osInfo', (req, res) => {
@@ -20,6 +20,6 @@ app.get('/api/osInfo', (req, res) => {
 })
 
 
-const codeCoverageDemo = () => true
+// X const codeCoverageDemo = () => true
 
 module.exports = app
