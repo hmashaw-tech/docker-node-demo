@@ -8,7 +8,7 @@ const express = require('express')
 const app = express()
 
 app.get('/api', (req, res) => {
-    res.send({ msg: 'Demo App - Version 1.0.0 - Beta'})
+    res.send({ msg: 'Demo App - Version 1.0.0'})
 })
 
 app.get('/api/osInfo', (req, res) => {
